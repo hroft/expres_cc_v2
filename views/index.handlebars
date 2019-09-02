@@ -1,20 +1,44 @@
 <h1 class="text-center mb-3">{{title}}</h1>
 <form action="/api/members" method="POST" class="mb-4">
     <div class="form-group">
-        <label for="name">Name</label>
-        <input type="text" class="form-control" name="name">
+        <label for="title">Title</label>
+        <input type="text" class="form-control" name="title">
     </div>
     <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" class="form-control" name="email">
+        <label for="photo_url">Photo_url</label>
+        <input type="text" class="form-control" name="photo_url">
+    </div>
+    {{!-- <div class="btn grey">
+        <span>File</span>
+        <input name="myImage" type="file" />
+    </div> --}}
+    <div class="form-group">
+        <label for="document_url">Document_url</label>
+        <input type="text" class="form-control" name="document_url">
+    </div>
+    <div class="form-group">
+        <label for="details">Details</label>
+        <input type="text" class="form-control" name="details">
     </div>
     <input type="submit" value="Add Member" class="btn btn-primary btn-block">
 </form>
-<h4>Members</h4>
-<ul class="list-group">
-    {{#each members}}
-    <li class="list-group-item">{{this.name}}: {{this.email}}</li>
-    {{/each}}
-</ul>
+<h4>Members2</h4>
+{{#each machines}}
+<div class="card mb-4">
+    <div class="card-body">
+        <div class="card-img-top">
+            <img src="{{this.photo_url}}" alt="">
+        </div>
+        <div class="card-titlle">
+            {{this.title}}
+        </div>
+        <div class="card-text">
+            {{{this.details}}}
+        </div>
+    </div>
+
+</div>
+{{/each}}
+
 
 <a href="/api/members" class="btn btn-lingh mt-4">Visit API</a>
